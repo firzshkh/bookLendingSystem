@@ -1,0 +1,53 @@
+<div class="main-div">
+
+
+
+    <div class="rent-layout shadow">
+        <div class="page-title">
+            Rent Books
+        </div>
+        <br>
+        <div *ngIf="book" class="card-book card-detail">
+            <div class="detailCardStyle">
+                <img src="{{book.url}}" class="img-book-card flex1 rightMargin10">
+                <div class="flex1">
+                    Title: <br><br>
+                    <div class="book-name">{{book.name}}</div>
+                    <div class="author">{{book.author}}</div>
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <div>
+            <label class="inputLayout">Username</label>
+            <input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username">
+        </div>
+        <div>
+            <label class="inputLayout">Membership No</label>
+            <input type="text" name="membershipNo" placeholder="Enter Membership Number" [(ngModel)]="membershipNo">
+        </div>
+        <div>
+            <label class="inputLayout">Duration of Rental (In Days)</label>
+            <input type="text" name="rentDuration" placeholder="Enter Duration For Renting Book"
+                [(ngModel)]="rentDuration" (input)="onSearchChange($event.target.value)">
+
+
+        </div>
+        <div>
+            <label class="inputLayout">Return Date: </label>
+            <label>{{newDate | date:'short':'UTC'}}</label>
+        </div>
+        <br><br>
+        <div class="buttonListRent" *ngIf="!book.onRent==true" (click)="rentBooks()">
+            RENT
+        </div>
+
+        <div class=" " *ngIf="book.onRent==true" (click)="rentBooks()">
+            Book Not Available
+        </div>
+
+    </div>
+
+</div>

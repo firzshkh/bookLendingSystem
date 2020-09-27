@@ -1,0 +1,42 @@
+<div class="main-div">
+  
+    <div class="return-layout shadow">
+        <div class="page-title">
+            Return Books
+        </div>
+        <br>
+        <div *ngIf="book" class="card-book card-detail">
+            <div class="detailCardStyle">
+                <img src="{{book.url}}" class="img-book-card flex1 rightMargin10">
+                <div class="flex1">
+                    Title: <br><br>
+                    <div class="book-name">{{book.name}}</div>
+                    <div class="author">{{book.author}}</div>
+                    <br> 
+                    Return Date: <br>
+                    <label class="inputLayout return-date-style"  >{{book.returnBefore | date:'short':'UTC'}}</label>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div>
+            <label class="inputLayout">Username</label>
+            <input type="text" name="username" placeholder="Enter Username" [(ngModel)]="username">
+        </div>
+        <div>
+            <label class="inputLayout">Membership No</label>
+            <input type="text" name="membershipNo" placeholder="Enter Membership Number" [(ngModel)]="membershipNo">
+        </div>
+
+        <br> <br>
+
+        <div class="buttonListRent" *ngIf="book.onRent==true" (click)="returnBooks()">
+            Return Book
+        </div>
+
+        <div class=" " *ngIf="!book.onRent==true" (click)="rentBooks()">
+            Book Not Available
+        </div>
+
+    </div>
+</div>
