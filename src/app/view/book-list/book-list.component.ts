@@ -54,7 +54,7 @@ export class BookListComponent implements OnInit {
   }
 
   public getJSON(): Observable<any> {
-    return this.http.get('../../../assets/json/books.json');
+    return this.http.get('/assets/json/books.json');
   }
 
 
